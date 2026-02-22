@@ -1,0 +1,119 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[3725]]
+        image = C:\Users\furka\OneDrive\Documents\Desktop\GNS3\c3725-adventerprisek9-mz.124-15.T14.image
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        model = 3725
+        console = 2104
+        aux = 2504
+        cnfg = configs\R4.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R3 s0/1
+        x = 654.0
+        y = -80.0
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        cnfg = configs\R1.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        x = -814.0
+        y = -103.0
+        z = 1.0
+        hx = 23.5
+        hy = -20.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        cnfg = configs\R2.cfg
+        wic0/0 = WIC-2T
+        wic0/1 = WIC-2T
+        s0/0 = R1 s0/0
+        s0/1 = R3 s0/0
+        s0/2 = R3 s0/2
+        x = -455.0
+        y = -99.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2103
+        aux = 2503
+        cnfg = configs\R3.cfg
+        wic0/0 = WIC-2T
+        wic0/1 = WIC-2T
+        s0/0 = R2 s0/1
+        s0/1 = R4 s0/0
+        s0/2 = R2 s0/2
+        x = 360.0
+        y = -87.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    m11 = 1.0
+    m22 = 1.0
+    [[NOTE 1]]
+        text = "13.0.0.0/8"
+        x = 502.045814642
+        y = -102.888347648
+    [[NOTE 2]]
+        text = "12.0.0.0/8"
+        x = -247.487373415
+        y = -54.8050865276
+    [[NOTE 3]]
+        text = "11.0.0.0/8"
+        x = -262.33661582
+        y = -117.030483272
+    [[NOTE 4]]
+        text = "10.0.0.0/8"
+        x = -655.48798616
+        y = -145.31475452
+    [[NOTE 5]]
+        text = "s0/0"
+        x = -55.7527478959
+        y = -21.5204219304
+        interface = R4 s0/0
+    [[NOTE 6]]
+        text = "s0/2"
+        x = -40.8213486758
+        y = 29.9249378988
+        interface = R3 s0/2
+    [[NOTE 7]]
+        text = "s0/1"
+        x = 65.184205401
+        y = -20.7466053744
+        interface = R3 s0/1
+    [[NOTE 8]]
+        text = "s0/0"
+        x = -48.7477370228
+        y = -11.0745202043
+        interface = R3 s0/0
+    [[NOTE 9]]
+        text = "s0/2"
+        x = 63.9241253697
+        y = 34.5739783074
+        interface = R2 s0/2
+    [[NOTE 10]]
+        text = "s0/1"
+        x = 72.9977370228
+        y = -14.4254797957
+        interface = R2 s0/1
+    [[NOTE 11]]
+        text = "s0/0"
+        x = -51.9602407399
+        y = -7.21698008833
+        interface = R2 s0/0
+    [[NOTE 12]]
+        text = "s0/0"
+        x = 64.9602407399
+        y = -19.7830199117
+        interface = R1 s0/0
