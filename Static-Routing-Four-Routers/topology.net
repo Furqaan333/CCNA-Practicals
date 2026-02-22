@@ -1,0 +1,100 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[3725]]
+        image = C:\Users\furka\OneDrive\Documents\Desktop\GNS3\c3725-adventerprisek9-mz.124-15.T14.image
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        model = 3725
+        console = 2104
+        aux = 2504
+        wic0/0 = WIC-2T
+        s0/0 = R3 s0/1
+        cnfg = configs\R4.cfg
+        x = 669.0
+        y = -90.0
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        cnfg = configs\R1.cfg
+        x = -283.0
+        y = -99.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        wic0/0 = WIC-2T
+        wic0/1 = WIC-2T
+        s0/0 = R1 s0/0
+        s0/1 = R3 s0/0
+        cnfg = configs\R2.cfg
+        x = 24.0
+        y = -99.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2103
+        aux = 2503
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/1
+        s0/1 = R4 s0/0
+        cnfg = configs\R3.cfg
+        x = 340.0
+        y = -94.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    m11 = 1.0
+    m22 = 1.0
+    [[NOTE 1]]
+        text = "12.0.0.0/8"
+        x = 481.0
+        y = -127.5
+    [[NOTE 2]]
+        text = "11.0.0.0/8"
+        x = 159.0
+        y = -139.5
+    [[NOTE 3]]
+        text = "10.0.0.0/8"
+        x = -152.0
+        y = -130.5
+    [[NOTE 4]]
+        text = "s0/0"
+        x = -50.9532803813
+        y = -12.0672851283
+        interface = R4 s0/0
+    [[NOTE 5]]
+        text = "s0/1"
+        x = 64.9532803813
+        y = -17.9327148717
+        interface = R3 s0/1
+    [[NOTE 6]]
+        text = "s0/0"
+        x = -48.9558360367
+        y = -9.12086014123
+        interface = R3 s0/0
+    [[NOTE 7]]
+        text = "s0/1"
+        x = 77.9558360367
+        y = -17.8791398588
+        interface = R2 s0/1
+    [[NOTE 8]]
+        text = "s0/0"
+        x = -59.9167139313
+        y = -13.4200874181
+        interface = R2 s0/0
+    [[NOTE 9]]
+        text = "s0/0"
+        x = 62.9167139313
+        y = -19.5799125819
+        interface = R1 s0/0
